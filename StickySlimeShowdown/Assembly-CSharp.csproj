@@ -74,6 +74,7 @@
     <Compile Include="Assets/Scripts/StateWalk.cs" />
     <Compile Include="Assets/Scripts/StateRun.cs" />
     <Compile Include="Assets/slimeWalk.cs" />
+    <Compile Include="Assets/Scripts/slimeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Kawaii Slimes/Shader/UnityURPToonLitShader/NiloZOffset.hlsl" />
