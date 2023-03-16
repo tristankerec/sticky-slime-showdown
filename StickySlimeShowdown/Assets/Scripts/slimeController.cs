@@ -47,7 +47,17 @@ public class slimeController : MonoBehaviour
                 Destroy(child.gameObject);
             }
             GameObject nextPlayerModel = Instantiate(models[index], transform.GetChild(0).position, transform.GetChild(0).rotation);
+            //nextPlayerModel.name = "Slime_03_Leaf";
+            if (index == 1)
+            {
+                nextPlayerModel.tag = "Player2";
+
+            } else if (index == 2) {
+                nextPlayerModel.tag = "Player3";
+
+            }
             CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
+            CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
             characterController.center = new Vector3(0, 0.4f, 0);
             characterController.radius = 0.31f;
             characterController.height = 0.1f;
@@ -57,8 +67,10 @@ public class slimeController : MonoBehaviour
             newAnim.applyRootMotion = true;
             newAnim.runtimeAnimatorController = newAnimController;
             controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
+            controller = characterController;
             animator = nextPlayerModel.GetComponentInChildren<Animator>();
             nextPlayerModel.transform.SetParent(parent.transform);
+            
 
             index = index + 1;
             pointsThreshold = 5000;
