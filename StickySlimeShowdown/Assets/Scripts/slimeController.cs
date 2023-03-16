@@ -17,13 +17,22 @@ public class slimeController : MonoBehaviour
     private GameObject currentModel;
     private GameObject parent;
 
+
     void Start()
     {
         controller = GetComponentInChildren<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         parent = GameObject.FindWithTag("Parent");
+        currentPoints = 0;
         
 
+    }
+
+    void OnGUI()
+    {
+        GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives");
+        GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
+        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left:");
     }
 
     void FixedUpdate()
