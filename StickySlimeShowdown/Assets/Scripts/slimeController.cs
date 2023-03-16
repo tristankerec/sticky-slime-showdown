@@ -9,6 +9,7 @@ public class slimeController : MonoBehaviour
     private Animator animator;
     public AnimationClip idleClip;
     public AnimationClip walkClip;
+    public GameObject boundary;
     
 
     void Start()
@@ -43,6 +44,20 @@ public class slimeController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
         }
 
+        // Get the distance between the player and the boundary
+        float distanceToBoundary = Vector3.Distance(transform.position, boundary.transform.position);
+        
+        // If the player is outside the boundary, move them towards the boundary
+        if (distanceToBoundary > boundary.GetComponent<SphereCollider>().radius)
+        {
+            Vector3 directionToBoundary = (boundary.transform.position - transform.position).normalized;
+            Vector3 boundaryPosition = transform.position + directionToBoundary * (distanceToBoundary - boundary.GetComponent<SphereCollider>().radius);
+            controller.Move((boundaryPosition - transform.position).normalized * moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            controller.Move(movement * Time.deltaTime);
+        }
 
         //controller.Move(movement * Time.deltaTime);
     }
