@@ -7,8 +7,6 @@ public class slimeController : MonoBehaviour
     public float moveSpeed = 5f;
     private CharacterController controller;
     private Animator animator;
-    public AnimationClip idleClip;
-    public AnimationClip walkClip;
     
 
     void Start()
@@ -26,14 +24,12 @@ public class slimeController : MonoBehaviour
 
         if (moveMagnitude >= 1)
         {
-            //animator.SetFloat("Speed", 4f);
-            animator.SetFloat("Speed", 1.0f);
+            animator.SetFloat("Speed", moveSpeed);
 
         }
         else
         {
             animator.SetFloat("Speed", 0.0f);
-            //animator.SetFloat("Speed", 0.0f);
 
         }
         if (moveMagnitude > 0)

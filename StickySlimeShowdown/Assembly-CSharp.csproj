@@ -56,30 +56,32 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
-    <Compile Include="Assets/Kawaii Slimes/Scripts/GameManager.cs" />
-    <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs" />
-    <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" />
-    <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" />
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/Face.cs" />
     <Compile Include="Assets/Scripts/StateRetreat.cs" />
-    <Compile Include="Assets/Scripts/PlayerStatus.cs" />
-    <Compile Include="Assets/Scripts/PlayerController.cs" />
-    <Compile Include="Assets/Scripts/State.cs" />
-    <Compile Include="Assets/Scripts/StateAttack.cs" />
-    <Compile Include="Assets/Scripts/StateIdle.cs" />
+    <Compile Include="Assets/Kawaii Slimes/Scripts/GameManager.cs" />
+    <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" />
     <Compile Include="Assets/Scripts/AIController.cs" />
-    <Compile Include="Assets/Scripts/AIStatus.cs" />
     <Compile Include="Assets/Scripts/StateDead.cs" />
-    <Compile Include="Assets/Scripts/StateWalk.cs" />
     <Compile Include="Assets/Scripts/StateRun.cs" />
-    <Compile Include="Assets/slimeWalk.cs" />
+    <Compile Include="Assets/Scripts/PlayerController.cs" />
+    <Compile Include="Assets/Scripts/PlayerStatus.cs" />
+    <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs" />
     <Compile Include="Assets/Scripts/slimeController.cs" />
+    <Compile Include="Assets/Scripts/StateWalk.cs" />
+    <Compile Include="Assets/Scripts/State.cs" />
+    <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" />
+    <Compile Include="Assets/Scripts/AIStatus.cs" />
+    <Compile Include="Assets/slimeWalk.cs" />
+    <Compile Include="Assets/Scripts/StateAttack.cs" />
+    <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
+    <Compile Include="Assets/Scripts/StateIdle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Kawaii Slimes/Shader/UnityURPToonLitShader/NiloZOffset.hlsl" />
+    <None Include="Assets/Fantasy Skybox FREE/Readme.txt" />
     <None Include="Assets/Kawaii Slimes/Shader/UnityURPToonLitShader/SimpleURPToonLitOutlineExample.shader" />
     <None Include="Assets/Kawaii Slimes/Shader/UnityURPToonLitShader/SimpleURPToonLitOutlineExample_LightingEquation.hlsl" />
+    <None Include="Assets/Fantasy Skybox FREE/ReleaseNotes.txt" />
     <None Include="Assets/Kawaii Slimes/Cameras/CameraGuidelines.txt" />
     <None Include="Assets/Kawaii Slimes/Shader/Unity-chan Shader Ver 1.2.1/readme.txt" />
     <None Include="Assets/Kawaii Slimes/Shader/UnityURPToonLitShader/NiloOutlineUtil.hlsl" />
