@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{D40B112D-421F-E212-B0E3-9B3ECD35F66E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/slimeController.cs">
     <Files>
-      <File FileName="Assets/slimeWalk.cs" Line="29" Column="1" />
-      <File FileName="Assets/slimeController.cs" Line="29" Column="33" />
+      <File FileName="Assets/Scripts/slimeController.cs" Line="30" Column="13" />
       <File FileName="Assets/Scripts/StateRun.cs" Line="29" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/AIController.cs" Line="156" Column="36" NotebookId="1" />
-      <File FileName="Assets/Scripts/AIStatus.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/AIController.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/AIStatus.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
@@ -14,7 +13,7 @@
           <Node name="StickySlimeShowdown" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerController.cs" selected="True" />
+                <Node name="slimeController.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -24,7 +23,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b49ca289-9882-4150-944c-1e8e3879fa7f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bd1bd3eb-0595-4c90-8b28-77cf750a5385" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
