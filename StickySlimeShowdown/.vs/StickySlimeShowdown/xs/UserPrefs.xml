@@ -6,9 +6,9 @@
       <File FileName="Assets/Scripts/AIController.cs" Line="66" Column="34" />
       <File FileName="Assets/Scripts/State.cs" Line="5" Column="36" />
       <File FileName="Assets/Scripts/StateWalk.cs" Line="23" Column="10" />
-      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="40" Column="1" />
+      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="27" Column="37" />
       <File FileName="Assets/Scripts/StateDead.cs" Line="10" Column="33" />
-      <File FileName="Assets/Scripts/slimeController.cs" Line="34" Column="62" />
+      <File FileName="Assets/Scripts/slimeController.cs" Line="57" Column="44" />
       <File FileName="Assets/Scripts/PlayerController.cs" Line="10" Column="33" NotebookId="1" />
       <File FileName="Assets/Scripts/PlayerStatus.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/enemyController.cs" Line="62" Column="22" NotebookId="1" />
