@@ -5,13 +5,14 @@ using UnityEngine;
 public class CharacterCollision : MonoBehaviour
 {
     private slimeController slime;
+    private bool collisionHandled = false;
 
     void Start()
     {
         slime = GetComponentInParent<slimeController>();
         
     }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider hit)
     {
         // Check if the collision is with the NPC
         if (hit.gameObject.CompareTag("NPC"))

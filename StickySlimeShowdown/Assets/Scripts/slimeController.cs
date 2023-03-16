@@ -40,41 +40,41 @@ public class slimeController : MonoBehaviour
         Vector3 newPosition = transform.GetChild(0).position + moveDirection * moveDistance;
         newPosition = boundary.transform.position + (newPosition - boundary.transform.position).normalized * Mathf.Clamp(distanceToBoundary, 0f, maxDistance);
         
-        if (currentPoints > pointsThreshold)
-        {
-            foreach (Transform child in transform)
-            {
-                Destroy(child.gameObject);
-            }
-            GameObject nextPlayerModel = Instantiate(models[index], transform.GetChild(0).position, transform.GetChild(0).rotation);
-            //nextPlayerModel.name = "Slime_03_Leaf";
-            if (index == 1)
-            {
-                nextPlayerModel.tag = "Player2";
+        //if (currentPoints > pointsThreshold)
+        //{
+        //    foreach (Transform child in transform)
+        //    {
+        //        Destroy(child.gameObject);
+        //    }
+        //    GameObject nextPlayerModel = Instantiate(models[index], transform.GetChild(0).position, transform.GetChild(0).rotation);
+        //    //nextPlayerModel.name = "Slime_03_Leaf";
+        //    if (index == 1)
+        //    {
+        //        nextPlayerModel.tag = "Player2";
 
-            } else if (index == 2) {
-                nextPlayerModel.tag = "Player3";
+        //    } else if (index == 2) {
+        //        nextPlayerModel.tag = "Player3";
 
-            }
-            CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
-            CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
-            characterController.center = new Vector3(0, 0.4f, 0);
-            characterController.radius = 0.31f;
-            characterController.height = 0.1f;
-            Animator newAnim = nextPlayerModel.AddComponent<Animator>();
-            RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
-            newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
-            newAnim.applyRootMotion = true;
-            newAnim.runtimeAnimatorController = newAnimController;
-            controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
-            controller = characterController;
-            animator = nextPlayerModel.GetComponentInChildren<Animator>();
-            nextPlayerModel.transform.SetParent(parent.transform);
+        //    }
+        //    CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
+        //    CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
+        //    characterController.center = new Vector3(0, 0.4f, 0);
+        //    characterController.radius = 0.31f;
+        //    characterController.height = 0.1f;
+        //    Animator newAnim = nextPlayerModel.AddComponent<Animator>();
+        //    RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
+        //    newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+        //    newAnim.applyRootMotion = true;
+        //    newAnim.runtimeAnimatorController = newAnimController;
+        //    controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
+        //    controller = characterController;
+        //    animator = nextPlayerModel.GetComponentInChildren<Animator>();
+        //    nextPlayerModel.transform.SetParent(parent.transform);
             
 
-            index = index + 1;
-            pointsThreshold = 5000;
-        }
+        //    index = index + 1;
+        //    pointsThreshold = 5000;
+        //}
 
         // If the player is outside the boundary, move them towards the boundary
         if (distanceToBoundary >= boundary.GetComponent<SphereCollider>().radius)
@@ -110,6 +110,43 @@ public class slimeController : MonoBehaviour
     public void addPoints(int value)
     {
         currentPoints = currentPoints + value;
+        if (currentPoints > pointsThreshold)
+        {
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject nextPlayerModel = Instantiate(models[index], transform.GetChild(0).position, transform.GetChild(0).rotation);
+            //nextPlayerModel.name = "Slime_03_Leaf";
+            if (index == 1)
+            {
+                nextPlayerModel.tag = "Player2";
+
+            }
+            else if (index == 2)
+            {
+                nextPlayerModel.tag = "Player3";
+
+            }
+            CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
+            CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
+            characterController.center = new Vector3(0, 0.4f, 0);
+            characterController.radius = 0.31f;
+            characterController.height = 0.1f;
+            Animator newAnim = nextPlayerModel.AddComponent<Animator>();
+            RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
+            newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+            newAnim.applyRootMotion = true;
+            newAnim.runtimeAnimatorController = newAnimController;
+            controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
+            controller = characterController;
+            animator = nextPlayerModel.GetComponentInChildren<Animator>();
+            nextPlayerModel.transform.SetParent(parent.transform);
+
+
+            index = index + 1;
+            pointsThreshold = 5000;
+        }
     }
 }
 
