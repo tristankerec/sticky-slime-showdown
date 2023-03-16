@@ -119,7 +119,7 @@ public class slimeController : MonoBehaviour
     public void addPoints(int value)
     {
         currentPoints = currentPoints + value;
-        if (currentPoints > pointsThreshold)
+        if (currentPoints >= pointsThreshold)
         {
             foreach (Transform child in transform)
             {

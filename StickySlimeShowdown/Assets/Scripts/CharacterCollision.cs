@@ -5,7 +5,6 @@ using UnityEngine;
 public class CharacterCollision : MonoBehaviour
 {
     private slimeController slime;
-    private bool collisionHandled = false;
 
     void Start()
     {
