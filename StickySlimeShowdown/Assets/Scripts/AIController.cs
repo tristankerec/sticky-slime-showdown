@@ -63,7 +63,7 @@ public class AIController : MonoBehaviour {
 		//animEvent.time = 0.5f;
 		//attackClip.AddEvent(animEvent);
 		aiStatus = GetComponent<AIStatus>();
-		ChangeState(new StateIdle());
+		//ChangeState(new StateIdle());
 	}
 
 	public float getHealth()
@@ -153,7 +153,7 @@ public class AIController : MonoBehaviour {
 		if (!isControllable)
 			return;
 
-        currentState.Execute(this);
+        //currentState.Execute(this);
 		if (!IsDead)
 		{
 			moveDirection.y -= gravity * Time.deltaTime;

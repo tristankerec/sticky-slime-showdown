@@ -57,24 +57,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/Face.cs" />
-    <Compile Include="Assets/Scripts/StateRetreat.cs" />
     <Compile Include="Assets/Kawaii Slimes/Scripts/GameManager.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" />
     <Compile Include="Assets/Scripts/AIController.cs" />
     <Compile Include="Assets/Scripts/StateDead.cs" />
-    <Compile Include="Assets/Scripts/StateRun.cs" />
     <Compile Include="Assets/Scripts/PlayerController.cs" />
     <Compile Include="Assets/Scripts/PlayerStatus.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs" />
     <Compile Include="Assets/Scripts/slimeController.cs" />
     <Compile Include="Assets/Scripts/StateWalk.cs" />
     <Compile Include="Assets/Scripts/State.cs" />
+    <Compile Include="Assets/Scripts/enemyController.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" />
     <Compile Include="Assets/Scripts/AIStatus.cs" />
-    <Compile Include="Assets/slimeWalk.cs" />
+    <Compile Include="Assets/Scripts/slimeWalk.cs" />
     <Compile Include="Assets/Scripts/StateAttack.cs" />
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
-    <Compile Include="Assets/Scripts/StateIdle.cs" />
+    <Compile Include="Assets/Scripts/CharacterCollision.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Kawaii Slimes/Shader/UnityURPToonLitShader/NiloZOffset.hlsl" />
