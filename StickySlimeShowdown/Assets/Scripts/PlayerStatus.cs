@@ -68,5 +68,10 @@ public class PlayerStatus : MonoBehaviour {
 
 		playerController.IsControllable = true;
 	}
+
+	void KillCharacter()
+    {
+		StartCoroutine(Die());
+    }
 	
 }

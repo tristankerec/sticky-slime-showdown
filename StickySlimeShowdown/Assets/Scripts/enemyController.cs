@@ -9,6 +9,7 @@ public class enemyController : MonoBehaviour
     private CharacterController controller;
     private bool isControllable = true;
     private bool isDead = false;
+    private float moveSpeed;
 
     public bool IsControllable
     {
@@ -28,7 +29,8 @@ public class enemyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         ChangeState(new StateWalk());
-        
+        moveSpeed = Random.Range(0.4f, 0.8f);
+
     }
 
     // Update is called once per frame
@@ -53,7 +55,7 @@ public class enemyController : MonoBehaviour
 
     public bool canAttack()
     {
-        //TODO: if player is dead, return false
+        //TODO: if player can attack, return true
         GameObject player = GameObject.FindWithTag("Player");
         //Debug.Log(this.transform.GetChild(1).gameObject.name);
         //Debug.Log("----");
@@ -64,7 +66,7 @@ public class enemyController : MonoBehaviour
 
     public bool canDie()
     {
-        //TODO: if player is dead, return false
+        //TODO: if player is dead, return true
         GameObject player = GameObject.FindWithTag("Player");
 
         return false;
@@ -74,6 +76,17 @@ public class enemyController : MonoBehaviour
     {
         //TODO: if player is dead, return false
         GameObject player = GameObject.FindWithTag("Player");
+        
+        animator.SetFloat("Speed", moveSpeed);
+        if (transform.position.x >= 15.0f)
+        {
+            gameObject.transform.position = new Vector3(-14.11f, 0.0f, this.gameObject.transform.position.z);
+        }
+
+        if (transform.position.x <= -16.5f)
+        {
+            gameObject.transform.position = new Vector3(14.25f, 0.0f, this.gameObject.transform.position.z);
+        }
 
         return false;
     }

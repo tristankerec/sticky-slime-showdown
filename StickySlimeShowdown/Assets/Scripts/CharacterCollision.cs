@@ -29,7 +29,7 @@ public class CharacterCollision : MonoBehaviour
             if (enemyType == "Slime_01")
             {
                 Debug.Log("Adding 10 points");
-                hit.gameObject.transform.position = new Vector3(-6.85f, 0.0f, hit.gameObject.transform.position.z);
+                hit.gameObject.transform.position = new Vector3(-14.11f, 0.0f, hit.gameObject.transform.position.z);
                 slime.addPoints(10);
 
 
@@ -39,11 +39,13 @@ public class CharacterCollision : MonoBehaviour
                 {
                     Debug.Log("Player Lost a Life");
                     //Kill Player
+                    slime.killCharacter();
+
                 }
                 else
                 {
                     Debug.Log("Adding 20 points");
-                    hit.gameObject.transform.position = new Vector3(-6.85f, 0.0f, hit.gameObject.transform.position.z);
+                    hit.gameObject.transform.position = new Vector3(-14.11f, 0.0f, hit.gameObject.transform.position.z);
                 }
 
             } else if (enemyType == "Slime_03_King")
@@ -57,7 +59,7 @@ public class CharacterCollision : MonoBehaviour
                 {
 
                     Debug.Log("Adding 30 points");
-                    hit.gameObject.transform.position = new Vector3(-6.85f, 0.0f, hit.gameObject.transform.position.z);
+                    hit.gameObject.transform.position = new Vector3(-14.11f, 0.0f, hit.gameObject.transform.position.z);
                 }
             }
         }
