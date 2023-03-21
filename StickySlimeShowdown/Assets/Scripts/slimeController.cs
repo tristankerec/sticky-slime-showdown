@@ -16,6 +16,7 @@ public class slimeController : MonoBehaviour
     private int index = 1;
     private GameObject currentModel;
     private GameObject parent;
+    public GameObject spherePrefab;
 
 
     void Start()
@@ -150,7 +151,12 @@ public class slimeController : MonoBehaviour
             controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
             controller = characterController;
             animator = nextPlayerModel.GetComponentInChildren<Animator>();
+            Vector3 sphereLocation = new Vector3(transform.GetChild(0).position.x, 0.1f, transform.GetChild(0).position.z);
+            GameObject nextSphere = Instantiate(spherePrefab, sphereLocation, transform.GetChild(0).rotation);
+            nextSphere.transform.SetParent(nextPlayerModel.transform);
+
             nextPlayerModel.transform.SetParent(parent.transform);
+            
 
 
             index = index + 1;
