@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class slimeController : MonoBehaviour
 {
@@ -16,6 +17,22 @@ public class slimeController : MonoBehaviour
     private int index = 1;
     private GameObject currentModel;
     private GameObject parent;
+    public GameObject spherePrefab;
+
+    private float timerDuration = 240.0f;
+
+
+    public static string SecondsToMinutesAndSeconds(float seconds)
+    {
+        int minutes = Mathf.FloorToInt(seconds / 60f);
+        int remainingSeconds = Mathf.RoundToInt(seconds % 60f);
+        if (remainingSeconds == 60)
+        {
+            minutes++;
+            remainingSeconds = 0;
+        }
+        return string.Format("{0:00}:{1:00}", minutes, remainingSeconds);
+    }
 
 
     void Start()
@@ -24,15 +41,23 @@ public class slimeController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         parent = GameObject.FindWithTag("Parent");
         currentPoints = 0;
-        
+        Invoke("GameOver", timerDuration);
 
+    }
+
+    void GameOver() {
+        SceneManager.LoadScene(2);
+    }
+
+    void Update(){
+        timerDuration -= Time.deltaTime;
     }
 
     void OnGUI()
     {
         GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives");
         GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
-        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left:");
+        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
     }
 
     void FixedUpdate()
@@ -48,48 +73,10 @@ public class slimeController : MonoBehaviour
         float moveDistance = Mathf.Clamp(movement.magnitude * Time.deltaTime, 0f, maxDistance);
         Vector3 newPosition = transform.GetChild(0).position + moveDirection * moveDistance;
         newPosition = boundary.transform.position + (newPosition - boundary.transform.position).normalized * Mathf.Clamp(distanceToBoundary, 0f, maxDistance);
-        
-        //if (currentPoints > pointsThreshold)
-        //{
-        //    foreach (Transform child in transform)
-        //    {
-        //        Destroy(child.gameObject);
-        //    }
-        //    GameObject nextPlayerModel = Instantiate(models[index], transform.GetChild(0).position, transform.GetChild(0).rotation);
-        //    //nextPlayerModel.name = "Slime_03_Leaf";
-        //    if (index == 1)
-        //    {
-        //        nextPlayerModel.tag = "Player2";
-
-        //    } else if (index == 2) {
-        //        nextPlayerModel.tag = "Player3";
-
-        //    }
-        //    CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
-        //    CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
-        //    characterController.center = new Vector3(0, 0.4f, 0);
-        //    characterController.radius = 0.31f;
-        //    characterController.height = 0.1f;
-        //    Animator newAnim = nextPlayerModel.AddComponent<Animator>();
-        //    RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
-        //    newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
-        //    newAnim.applyRootMotion = true;
-        //    newAnim.runtimeAnimatorController = newAnimController;
-        //    controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
-        //    controller = characterController;
-        //    animator = nextPlayerModel.GetComponentInChildren<Animator>();
-        //    nextPlayerModel.transform.SetParent(parent.transform);
-            
-
-        //    index = index + 1;
-        //    pointsThreshold = 5000;
-        //}
 
         // If the player is outside the boundary, move them towards the boundary
         if (distanceToBoundary >= boundary.GetComponent<SphereCollider>().radius)
         {
-            //animator.SetFloat("Speed", 0.0f);
-            //Debug.Log("HIT BOUNDARY");
             controller.Move(newPosition - transform.GetChild(0).position);
         }
         else
@@ -150,12 +137,29 @@ public class slimeController : MonoBehaviour
             controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
             controller = characterController;
             animator = nextPlayerModel.GetComponentInChildren<Animator>();
+            Vector3 sphereLocation = new Vector3(transform.GetChild(0).position.x, 0.01f, transform.GetChild(0).position.z);
+            GameObject nextSphere = Instantiate(spherePrefab, sphereLocation, transform.GetChild(0).rotation);
+            nextSphere.transform.SetParent(nextPlayerModel.transform);
+
             nextPlayerModel.transform.SetParent(parent.transform);
+            
 
 
             index = index + 1;
             pointsThreshold = 5000;
         }
+    }
+
+    public void killCharacter()
+    {
+        StartCoroutine(Die());
+    }
+
+    IEnumerator Die()
+    {
+        print("Dead!");
+        yield return new WaitForSeconds(5);
+        print("Alive!");
     }
 }
 

@@ -2,16 +2,16 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/slimeController.cs">
     <Files>
       <File FileName="Assets/Scripts/StateAttack.cs" Line="21" Column="45" />
-      <File FileName="Assets/Scripts/AIStatus.cs" />
-      <File FileName="Assets/Scripts/AIController.cs" />
+      <File FileName="Assets/Scripts/AIStatus.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AIController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/State.cs" />
-      <File FileName="Assets/Scripts/StateWalk.cs" />
-      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="27" Column="37" />
+      <File FileName="Assets/Scripts/StateWalk.cs" Line="22" Column="35" />
+      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="42" Column="43" />
       <File FileName="Assets/Scripts/StateDead.cs" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="10" Column="33" NotebookId="1" />
-      <File FileName="Assets/Scripts/PlayerStatus.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/enemyController.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/slimeController.cs" Line="28" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="49" Column="6" />
+      <File FileName="Assets/Scripts/slimeController.cs" Line="142" Column="25" />
+      <File FileName="Assets/Scripts/PlayerStatus.cs" Line="67" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/enemyController.cs" Line="86" Column="13" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8246ea91-77dc-4dca-b4bf-12236bb3a36a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e9f5ed77-294e-42c9-a305-5272c24ded97" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
