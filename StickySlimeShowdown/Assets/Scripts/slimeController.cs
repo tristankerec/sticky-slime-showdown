@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class slimeController : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class slimeController : MonoBehaviour
     private GameObject currentModel;
     private GameObject parent;
 
+    private float timerDuration = 15.0f;
+
+    private int roundedTime  = 0;
+
 
     void Start()
     {
@@ -24,15 +29,24 @@ public class slimeController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         parent = GameObject.FindWithTag("Parent");
         currentPoints = 0;
-        
+        Invoke("GameOver", timerDuration);
 
+    }
+
+    void GameOver() {
+        SceneManager.LoadScene(2);
+    }
+
+    void Update(){
+        timerDuration -= Time.deltaTime;
+        roundedTime = Mathf.RoundToInt(timerDuration);
     }
 
     void OnGUI()
     {
         GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives");
         GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
-        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left:");
+        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left:" + roundedTime.ToString());
     }
 
     void FixedUpdate()
