@@ -18,9 +18,20 @@ public class slimeController : MonoBehaviour
     private GameObject currentModel;
     private GameObject parent;
 
-    private float timerDuration = 15.0f;
+    private float timerDuration = 240.0f;
 
-    private int roundedTime  = 0;
+
+    public static string SecondsToMinutesAndSeconds(float seconds)
+    {
+        int minutes = Mathf.FloorToInt(seconds / 60f);
+        int remainingSeconds = Mathf.RoundToInt(seconds % 60f);
+        if (remainingSeconds == 60)
+        {
+            minutes++;
+            remainingSeconds = 0;
+        }
+        return string.Format("{0:00}:{1:00}", minutes, remainingSeconds);
+    }
 
 
     void Start()
@@ -39,14 +50,13 @@ public class slimeController : MonoBehaviour
 
     void Update(){
         timerDuration -= Time.deltaTime;
-        roundedTime = Mathf.RoundToInt(timerDuration);
     }
 
     void OnGUI()
     {
         GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives");
         GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
-        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left:" + roundedTime.ToString());
+        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
     }
 
     void FixedUpdate()
