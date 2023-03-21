@@ -157,5 +157,17 @@ public class slimeController : MonoBehaviour
             pointsThreshold = 5000;
         }
     }
+
+    public void killCharacter()
+    {
+        StartCoroutine(Die());
+    }
+
+    IEnumerator Die()
+    {
+        print("Dead!");
+        yield return new WaitForSeconds(5);
+        print("Alive!");
+    }
 }
 
