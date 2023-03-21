@@ -78,12 +78,13 @@ public class enemyController : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         
         animator.SetFloat("Speed", moveSpeed);
-        if (transform.position.x >= 15.0f)
+        Debug.Log(transform.name);
+        if (transform.position.x >= 14.0f && !transform.name.Contains("right"))
         {
             gameObject.transform.position = new Vector3(-14.11f, 0.0f, this.gameObject.transform.position.z);
         }
 
-        if (transform.position.x <= -16.5f)
+        if (transform.position.x <= -15.5f && transform.name.Contains("right"))
         {
             gameObject.transform.position = new Vector3(14.25f, 0.0f, this.gameObject.transform.position.z);
         }

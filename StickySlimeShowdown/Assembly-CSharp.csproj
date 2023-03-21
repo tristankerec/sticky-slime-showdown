@@ -77,6 +77,7 @@
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
     <Compile Include="Assets/MainMenu.cs" />
     <Compile Include="Assets/Scripts/CharacterCollision.cs" />
+    <Compile Include="Assets/GameOver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
