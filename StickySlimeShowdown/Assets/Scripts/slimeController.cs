@@ -76,9 +76,9 @@ public class slimeController : MonoBehaviour
 
 
 
-        if (!isAlive() || (transform.childCount == 0))
+        if (!isAlive() && transform.childCount == 0)
         {
-            Debug.Log("Return");
+            Debug.Log("Dead");
             return;
         }
 
@@ -90,11 +90,9 @@ public class slimeController : MonoBehaviour
 
         if (!isAlive())
         {
-            Debug.Log("Return HERE");
+            Debug.Log("Invincible. Move to disable Invincibility");
             return;
         }
-
-        Debug.Log("ALIVE");
 
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -184,7 +182,7 @@ public class slimeController : MonoBehaviour
         slimeAlive = false;
         aliveCond = 0;
         StartCoroutine(Die());
-        print("Dead!");
+        
         numLives--;
     }
 
@@ -232,7 +230,6 @@ public class slimeController : MonoBehaviour
         nextSphere.transform.SetParent(nextPlayerModel.transform);
 
         nextPlayerModel.transform.SetParent(parent.transform);
-        print("Alive");
         aliveCond = 1;
 
     }
