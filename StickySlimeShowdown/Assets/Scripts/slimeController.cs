@@ -155,7 +155,7 @@ public class slimeController : MonoBehaviour
 
             }
             CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
-            //CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
+            CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
             characterController.center = new Vector3(0, 0.4f, 0);
             characterController.radius = 0.31f;
             characterController.height = 0.1f;
