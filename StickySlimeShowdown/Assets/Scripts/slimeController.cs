@@ -13,11 +13,14 @@ public class slimeController : MonoBehaviour
     public GameObject boundary;
     public GameObject[] models;
     private int currentPoints = 0;
-    private int pointsThreshold = 10;
+    private int pointsThreshold = 60;
     private int index = 1;
+    private int numLives = 3;
     private GameObject currentModel;
     private GameObject parent;
     public GameObject spherePrefab;
+    private bool slimeAlive = true;
+    int aliveCond = 1;
 
     private float timerDuration = 240.0f;
 
@@ -53,20 +56,50 @@ public class slimeController : MonoBehaviour
         timerDuration -= Time.deltaTime;
     }
 
+
+
     void OnGUI()
     {
-        GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives");
+        GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives: " + numLives.ToString());
         GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
         GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
     }
 
+    public void setDead()
+    {
+        animator.SetFloat("Speed", 0.0f);
+        slimeAlive = false;
+    }
+
     void FixedUpdate()
     {
+
+
+
+        if (!isAlive() || (transform.childCount == 0))
+        {
+            Debug.Log("Return");
+            return;
+        }
+
+        if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0) && aliveCond == 1)
+        {
+            slimeAlive = true;
+
+        }
+
+        if (!isAlive())
+        {
+            Debug.Log("Return HERE");
+            return;
+        }
+
+        Debug.Log("ALIVE");
+
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed;
         float moveMagnitude = movement.magnitude;
-
         float distanceToBoundary = Vector3.Distance(transform.GetChild(0).position, boundary.transform.position);
         float maxDistance = boundary.GetComponent<SphereCollider>().radius;
         Vector3 moveDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
@@ -106,14 +139,13 @@ public class slimeController : MonoBehaviour
     public void addPoints(int value)
     {
         currentPoints = currentPoints + value;
-        if (currentPoints >= pointsThreshold)
+        if (currentPoints >= pointsThreshold && index < 3)
         {
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
             }
             GameObject nextPlayerModel = Instantiate(models[index], transform.GetChild(0).position, transform.GetChild(0).rotation);
-            //nextPlayerModel.name = "Slime_03_Leaf";
             if (index == 1)
             {
                 nextPlayerModel.tag = "Player2";
@@ -125,7 +157,7 @@ public class slimeController : MonoBehaviour
 
             }
             CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
-            CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
+            //CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
             characterController.center = new Vector3(0, 0.4f, 0);
             characterController.radius = 0.31f;
             characterController.height = 0.1f;
@@ -142,24 +174,76 @@ public class slimeController : MonoBehaviour
             nextSphere.transform.SetParent(nextPlayerModel.transform);
 
             nextPlayerModel.transform.SetParent(parent.transform);
-            
-
-
-            index = index + 1;
-            pointsThreshold = 5000;
+            index++;
+            pointsThreshold = 260;
         }
     }
 
-    public void killCharacter()
+    public void loseLife()
     {
+        slimeAlive = false;
+        aliveCond = 0;
         StartCoroutine(Die());
+        print("Dead!");
+        numLives--;
     }
 
     IEnumerator Die()
     {
-        print("Dead!");
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
         yield return new WaitForSeconds(5);
-        print("Alive!");
+        Vector3 newPos = new Vector3(0.0f, -0.009995013f, 0.0f);
+        Quaternion newQuaternion = new Quaternion(0, 0, 0, 0);
+
+        GameObject nextPlayerModel = Instantiate(models[index-1], newPos, newQuaternion);
+        if (index == 1)
+        {
+            nextPlayerModel.tag = "Player";
+
+        }
+        if (index == 2)
+        {
+            nextPlayerModel.tag = "Player2";
+
+        }
+        else if (index == 3)
+        {
+            nextPlayerModel.tag = "Player3";
+
+        }
+        CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
+        CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
+        characterController.center = new Vector3(0, 0.4f, 0);
+        characterController.radius = 0.31f;
+        characterController.height = 0.1f;
+        Animator newAnim = nextPlayerModel.AddComponent<Animator>();
+        RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
+        newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+        newAnim.applyRootMotion = true;
+        newAnim.runtimeAnimatorController = newAnimController;
+        controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
+        controller = characterController;
+        animator = nextPlayerModel.GetComponentInChildren<Animator>();
+        Vector3 sphereLocation = new Vector3(0.0f, 0.01f, 0.0f);
+        GameObject nextSphere = Instantiate(spherePrefab, sphereLocation, nextPlayerModel.transform.rotation);
+        nextSphere.transform.SetParent(nextPlayerModel.transform);
+
+        nextPlayerModel.transform.SetParent(parent.transform);
+        print("Alive");
+        aliveCond = 1;
+
     }
+
+    public bool isAlive()
+    {
+        return slimeAlive;
+    }
+
+
 }
+
+
 

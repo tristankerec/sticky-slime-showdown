@@ -61,6 +61,7 @@
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" />
     <Compile Include="Assets/Scripts/AIController.cs" />
     <Compile Include="Assets/Scripts/StateDead.cs" />
+    <Compile Include="Assets/GameOver.cs" />
     <Compile Include="Assets/Scripts/PlayerController.cs" />
     <Compile Include="Assets/Scripts/PlayerStatus.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets/Scripts/slimeController.cs" />
     <Compile Include="Assets/Points.cs" />
     <Compile Include="Assets/Scripts/StateWalk.cs" />
+    <Compile Include="Assets/LifePowerUp.cs" />
     <Compile Include="Assets/Scripts/State.cs" />
     <Compile Include="Assets/Scripts/enemyController.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" />
@@ -77,7 +79,6 @@
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
     <Compile Include="Assets/MainMenu.cs" />
     <Compile Include="Assets/Scripts/CharacterCollision.cs" />
-    <Compile Include="Assets/GameOver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
