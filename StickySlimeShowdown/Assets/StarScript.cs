@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifePowerUp : MonoBehaviour
+public class StarScript : MonoBehaviour
 {
     public SphereCollider spawnArea;
-    public float spawnInterval = 10f;
-    public GameObject lifePowerUpPrefab;
+    public float spawnInterval = 20f;
+    public GameObject starPrefab;
     private GameObject lastSpawnedObject;
 
     private void Start()
@@ -16,7 +16,7 @@ public class LifePowerUp : MonoBehaviour
 
     private IEnumerator SpawnObjectsAfterDelay()
     {
-        float randomTime = Random.Range(10f, 15f);
+        float randomTime = Random.Range(30f, 35f);
         yield return new WaitForSeconds(randomTime);
         StartCoroutine(SpawnObjects());
     }
@@ -31,7 +31,7 @@ public class LifePowerUp : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(randomSpherePoint, Vector3.down, out hit))
             {
-                GameObject newObject = Instantiate(lifePowerUpPrefab, hit.point + Vector3.up * 0.3f, Quaternion.identity);
+                GameObject newObject = Instantiate(starPrefab, hit.point + Vector3.up * 0.3f, Quaternion.identity);
                 if (lastSpawnedObject != null)
                 {
                     Destroy(lastSpawnedObject);

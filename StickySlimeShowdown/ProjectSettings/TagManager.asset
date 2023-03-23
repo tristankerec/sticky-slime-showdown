@@ -9,6 +9,7 @@ TagManager:
   - Parent
   - Player2
   - Player3
+  - Heart
   layers:
   - Default
   - TransparentFX

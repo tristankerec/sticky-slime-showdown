@@ -21,6 +21,11 @@ public class slimeController : MonoBehaviour
     public GameObject spherePrefab;
     private bool slimeAlive = true;
     int aliveCond = 1;
+    
+
+    float powerUpStartTime = 0f;
+
+    private bool isPowerUpActive = false;
 
     private float timerDuration = 240.0f;
 
@@ -48,12 +53,62 @@ public class slimeController : MonoBehaviour
 
     }
 
+    public void IncreaseSpeed(){
+        // Save the original moveSpeed
+        float originalSpeed = moveSpeed;
+        // Increase the moveSpeed
+        moveSpeed += 2f;
+        animator.speed = 1.3f;
+        // Wait for 5 seconds
+        isPowerUpActive = true;
+        powerUpStartTime = Time.time;
+        Invoke("RestoreIncSpeed", 10f);
+    }
+
+    public void DecreaseSpeed(){
+        // Save the original moveSpeed
+        float originalSpeed = moveSpeed;
+        // Increase the moveSpeed
+        // moveSpeed -= f;
+        animator.speed = 0.8f;
+        // Wait for 5 seconds
+        isPowerUpActive = true;
+        powerUpStartTime = Time.time;
+        Invoke("RestoreDecSpeed", 10f);
+    }
+
+    public void AddBonus(){
+        addPoints(50);
+    }
+
+
+    void RestoreIncSpeed(){
+        moveSpeed -= 2f;
+        animator.speed = 1f;
+        isPowerUpActive = false;
+    }
+
+    void RestoreDecSpeed(){
+        // moveSpeed += 0.5f;
+        animator.speed = 1f;
+        isPowerUpActive = false;
+    }
+    
+
     void GameOver() {
         SceneManager.LoadScene(2);
     }
 
     void Update(){
         timerDuration -= Time.deltaTime;
+    }
+
+    public int GetLives(){
+        return numLives;
+    }
+
+    public void AddLife(){
+        numLives = numLives + 1;
     }
 
 
@@ -63,6 +118,10 @@ public class slimeController : MonoBehaviour
         GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives: " + numLives.ToString());
         GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
         GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
+        if (isPowerUpActive){
+            float remainingTime = 10f - (Time.time - powerUpStartTime);;
+            GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 50, 100, 30), "Power Left: " + Mathf.RoundToInt(remainingTime));
+        }
     }
 
     public void setDead()
@@ -114,6 +173,7 @@ public class slimeController : MonoBehaviour
         {
             if (moveMagnitude >= 1)
             {
+                //animator.SetFloat("Speed", moveSpeed);
                 animator.SetFloat("Speed", moveSpeed);
 
             }
@@ -181,6 +241,7 @@ public class slimeController : MonoBehaviour
     {
         slimeAlive = false;
         aliveCond = 0;
+        isPowerUpActive = false;
         StartCoroutine(Die());
         
         numLives--;
