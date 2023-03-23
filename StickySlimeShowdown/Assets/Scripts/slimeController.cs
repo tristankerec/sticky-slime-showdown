@@ -25,6 +25,8 @@ public class slimeController : MonoBehaviour
 
     float powerUpStartTime = 0f;
 
+    string whichPower = "";
+
     private bool isPowerUpActive = false;
 
     private float timerDuration = 240.0f;
@@ -54,18 +56,40 @@ public class slimeController : MonoBehaviour
     }
 
     public void IncreaseSpeed(){
+        if (isPowerUpActive == true) {
+            if (whichPower == "Inc")
+            {
+                RestoreIncSpeed();
+            }
+            else {
+                RestoreDecSpeed();
+            }
+        }
         // Save the original moveSpeed
         float originalSpeed = moveSpeed;
         // Increase the moveSpeed
         moveSpeed += 2f;
         animator.speed = 1.3f;
         // Wait for 5 seconds
+        whichPower = "Inc";
         isPowerUpActive = true;
         powerUpStartTime = Time.time;
-        Invoke("RestoreIncSpeed", 10f);
+        //Invoke("RestoreIncSpeed", 10f);
     }
 
     public void DecreaseSpeed(){
+        if (isPowerUpActive == true)
+        {
+            if (whichPower == "Inc")
+            {
+                RestoreIncSpeed();
+            }
+            else
+            {
+                RestoreDecSpeed();
+            }
+        }
+        whichPower = "Dec";
         // Save the original moveSpeed
         float originalSpeed = moveSpeed;
         // Increase the moveSpeed
@@ -74,7 +98,7 @@ public class slimeController : MonoBehaviour
         // Wait for 5 seconds
         isPowerUpActive = true;
         powerUpStartTime = Time.time;
-        Invoke("RestoreDecSpeed", 10f);
+        //Invoke("RestoreDecSpeed", 10f);
     }
 
     public void AddBonus(){
@@ -119,7 +143,17 @@ public class slimeController : MonoBehaviour
         GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
         GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
         if (isPowerUpActive){
-            float remainingTime = 10f - (Time.time - powerUpStartTime);;
+            float remainingTime = 10f - (Time.time - powerUpStartTime);
+            if (remainingTime <= 0) {
+                if (whichPower == "Inc")
+                {
+                    RestoreIncSpeed();
+                }
+                else
+                {
+                    RestoreDecSpeed();
+                }
+            }
             GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 50, 100, 30), "Power Left: " + Mathf.RoundToInt(remainingTime));
         }
     }

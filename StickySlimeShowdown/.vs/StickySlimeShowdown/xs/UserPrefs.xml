@@ -1,6 +1,7 @@
 ﻿<Properties StartupConfiguration="{D40B112D-421F-E212-B0E3-9B3ECD35F66E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/slimeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterCollision.cs">
     <Files>
+      <File FileName="Assets/Scripts/slimeController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CharacterCollision.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/StateAttack.cs" />
       <File FileName="Assets/Scripts/AIStatus.cs" />
@@ -11,7 +12,6 @@
       <File FileName="Assets/Scripts/PlayerController.cs" />
       <File FileName="Assets/Scripts/PlayerStatus.cs" Line="67" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/enemyController.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/slimeController.cs" Line="199" Column="90" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2530a01f-3e11-496f-894b-9401958198e3" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6f036c31-489e-40c1-bbfe-bc83cf15724a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

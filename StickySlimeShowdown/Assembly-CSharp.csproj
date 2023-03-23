@@ -60,6 +60,7 @@
     <Compile Include="Assets/Kawaii Slimes/Scripts/GameManager.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" />
     <Compile Include="Assets/Scripts/AIController.cs" />
+    <Compile Include="Assets/StarBonus.cs" />
     <Compile Include="Assets/Scripts/StateDead.cs" />
     <Compile Include="Assets/GameOver.cs" />
     <Compile Include="Assets/Scripts/PlayerController.cs" />
@@ -70,13 +71,19 @@
     <Compile Include="Assets/Points.cs" />
     <Compile Include="Assets/Scripts/StateWalk.cs" />
     <Compile Include="Assets/LifePowerUp.cs" />
+    <Compile Include="Assets/StarScript.cs" />
     <Compile Include="Assets/Scripts/State.cs" />
+    <Compile Include="Assets/SpeedPowerUp.cs" />
+    <Compile Include="Assets/SpeedScript.cs" />
     <Compile Include="Assets/Scripts/enemyController.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" />
     <Compile Include="Assets/Scripts/AIStatus.cs" />
     <Compile Include="Assets/Scripts/slimeWalk.cs" />
     <Compile Include="Assets/Scripts/StateAttack.cs" />
+    <Compile Include="Assets/SpeedDownScript.cs" />
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
+    <Compile Include="Assets/HeartScript.cs" />
+    <Compile Include="Assets/SpeedDown.cs" />
     <Compile Include="Assets/MainMenu.cs" />
     <Compile Include="Assets/Scripts/CharacterCollision.cs" />
   </ItemGroup>
