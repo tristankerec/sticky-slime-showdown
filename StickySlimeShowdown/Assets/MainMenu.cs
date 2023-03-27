@@ -25,6 +25,6 @@ public class MainMenu : MonoBehaviour
 
     public void PowerUpScreen()
     {
-        SceneManager.LoadScene("powerUpScreenq");
+        SceneManager.LoadScene("powerUp");
     }
 }
