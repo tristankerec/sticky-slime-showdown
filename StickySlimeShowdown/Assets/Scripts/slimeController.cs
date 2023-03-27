@@ -135,6 +135,9 @@ public class slimeController : MonoBehaviour
         numLives = numLives + 1;
     }
 
+    public void AddSlimeCoinBonus(){
+        addPoints(5);
+    }
 
 
     void OnGUI()
