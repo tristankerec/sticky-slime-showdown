@@ -132,7 +132,7 @@ public class slimeController : MonoBehaviour
     
 
     void GameOver() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     void Update(){
