@@ -132,6 +132,7 @@ public class slimeController : MonoBehaviour
     
 
     void GameOver() {
+        PlayerPrefs.SetInt("Score", currentPoints);
         SceneManager.LoadScene(3);
     }
 
