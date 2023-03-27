@@ -179,15 +179,23 @@ public class slimeController : MonoBehaviour
             GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 30, 110, 30), "Power Left: " + Mathf.RoundToInt(remainingTime));
         }
         if (displayMessage){
-            float remainingTime = 10f - (Time.time - messageStart);
+            float remainingTime = 5f - (Time.time - messageStart);
             if (remainingTime<=0){
                 displayMessage = false;
             }
+            int respawnFlag = 0;
+            if (powerMessage == "Respawning in: "){
+                powerMessage = powerMessage + SecondsToMinutesAndSeconds(remainingTime);
+                respawnFlag = 1;
+            }
             if (isPowerUpActive){
-                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 60, 110, 30), powerMessage);
+                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 75, 60, 190, 30), powerMessage);
             }
             else{
-                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 30, 110, 30), powerMessage);
+                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 75, 30, 190, 30), powerMessage);
+            }
+            if (respawnFlag == 1){
+                powerMessage = "Respawning in: ";
             }
         }
     }
@@ -217,8 +225,15 @@ public class slimeController : MonoBehaviour
 
         if (!isAlive())
         {
+            displayMessage = true;
+            messageStart = Time.time;
+            powerMessage = "Move to disable Invincibility";
             Debug.Log("Invincible. Move to disable Invincibility");
             return;
+        }
+
+        if (powerMessage == "Move to disable Invincibility"){
+            displayMessage = false;
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -313,6 +328,10 @@ public class slimeController : MonoBehaviour
         displayMessage = false;
 
         StartCoroutine(Die());
+
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Respawning in: ";
         
         numLives--;
     }
