@@ -29,7 +29,7 @@ public class CharacterCollision : MonoBehaviour
             if (enemyType == "Slime_01")
             {
                 Debug.Log("Adding 10 points");
-                if (!hit.gameObject.transform.name.Contains("right"))
+                if (hit.gameObject.transform.name.Contains("right"))
                 {
                     hit.gameObject.transform.position = new Vector3(14.25f, 0.0f, hit.gameObject.transform.position.z);
 
@@ -56,7 +56,7 @@ public class CharacterCollision : MonoBehaviour
                 else
                 {
                     Debug.Log("Adding 20 points");
-                    if (!hit.gameObject.transform.name.Contains("right"))
+                    if (hit.gameObject.transform.name.Contains("right"))
                     {
                         hit.gameObject.transform.position = new Vector3(14.25f, 0.0f, hit.gameObject.transform.position.z);
 
@@ -82,7 +82,7 @@ public class CharacterCollision : MonoBehaviour
                 {
 
                     Debug.Log("Adding 30 points");
-                    if (!hit.gameObject.transform.name.Contains("right"))
+                    if (hit.gameObject.transform.name.Contains("right"))
                     {
                         hit.gameObject.transform.position = new Vector3(14.25f, 0.0f, hit.gameObject.transform.position.z);
 
