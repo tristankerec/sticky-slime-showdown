@@ -24,10 +24,13 @@ public class slimeController : MonoBehaviour
     
 
     float powerUpStartTime = 0f;
+    float messageStart = 0f;
 
     string whichPower = "";
+    string powerMessage = "";
 
     private bool isPowerUpActive = false;
+    private bool displayMessage = false;
 
     private float timerDuration = 240.0f;
 
@@ -74,6 +77,9 @@ public class slimeController : MonoBehaviour
         whichPower = "Inc";
         isPowerUpActive = true;
         powerUpStartTime = Time.time;
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Speed Up!";
         //Invoke("RestoreIncSpeed", 10f);
     }
 
@@ -99,10 +105,16 @@ public class slimeController : MonoBehaviour
         isPowerUpActive = true;
         powerUpStartTime = Time.time;
         //Invoke("RestoreDecSpeed", 10f);
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Speed Down!";
     }
 
     public void AddBonus(){
         addPoints(50);
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "50 Points!";
     }
 
 
@@ -133,15 +145,24 @@ public class slimeController : MonoBehaviour
 
     public void AddLife(){
         numLives = numLives + 1;
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Added a life!";
     }
 
+    public void AddSlimeCoinBonus(){
+        addPoints(5);
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "5 Points!";
+    }
 
 
     void OnGUI()
     {
-        GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives: " + numLives.ToString());
-        GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
-        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
+        GUI.Box(new Rect(Screen.width - 100, 0, 110, 30),"Lives: " + numLives.ToString());
+        GUI.Box(new Rect(0, 0, 110, 30),"Points: " + currentPoints.ToString());
+        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 0, 110, 30),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
         if (isPowerUpActive){
             float remainingTime = 10f - (Time.time - powerUpStartTime);
             if (remainingTime <= 0) {
@@ -154,7 +175,19 @@ public class slimeController : MonoBehaviour
                     RestoreDecSpeed();
                 }
             }
-            GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 50, 100, 30), "Power Left: " + Mathf.RoundToInt(remainingTime));
+            GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 30, 110, 30), "Power Left: " + Mathf.RoundToInt(remainingTime));
+        }
+        if (displayMessage){
+            float remainingTime = 10f - (Time.time - messageStart);
+            if (remainingTime<=0){
+                displayMessage = false;
+            }
+            if (isPowerUpActive){
+                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 60, 110, 30), powerMessage);
+            }
+            else{
+                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 30, 110, 30), powerMessage);
+            }
         }
     }
 
@@ -276,6 +309,8 @@ public class slimeController : MonoBehaviour
         slimeAlive = false;
         aliveCond = 0;
         isPowerUpActive = false;
+        displayMessage = false;
+
         StartCoroutine(Die());
         
         numLives--;
