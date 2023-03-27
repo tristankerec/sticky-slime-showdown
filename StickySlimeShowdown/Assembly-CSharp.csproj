@@ -86,6 +86,9 @@
     <Compile Include="Assets/SpeedDown.cs" />
     <Compile Include="Assets/MainMenu.cs" />
     <Compile Include="Assets/Scripts/CharacterCollision.cs" />
+    <Compile Include="Assets/CoinScript.cs" />
+    <Compile Include="Assets/SlimeCoin.cs" />
+    <Compile Include="Assets/powerUpSpin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
