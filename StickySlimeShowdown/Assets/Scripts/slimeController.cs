@@ -34,6 +34,9 @@ public class slimeController : MonoBehaviour
 
     private float timerDuration = 240.0f;
 
+    public AudioSource deathSource;
+    public AudioSource respawnSource;
+
 
     public static string SecondsToMinutesAndSeconds(float seconds)
     {
@@ -181,6 +184,9 @@ public class slimeController : MonoBehaviour
         if (displayMessage){
             float remainingTime = 5f - (Time.time - messageStart);
             if (remainingTime<=0){
+                if (powerMessage == "Respawning in: "){
+                    respawnSource.Play();
+                }
                 displayMessage = false;
             }
             int respawnFlag = 0;
@@ -327,6 +333,7 @@ public class slimeController : MonoBehaviour
         isPowerUpActive = false;
         displayMessage = false;
 
+        deathSource.Play();
         StartCoroutine(Die());
 
         displayMessage = true;

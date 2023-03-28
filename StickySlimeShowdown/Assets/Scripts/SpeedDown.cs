@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpeedDown : MonoBehaviour
 {
+    public AudioSource audioSource;
+    
     private void OnTriggerEnter(Collider other)
     {
         slimeController slime = other.GetComponentInParent<slimeController>();
@@ -11,6 +13,7 @@ public class SpeedDown : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
             slime.DecreaseSpeed();
+            audioSource.Play();
         }
     }
 }

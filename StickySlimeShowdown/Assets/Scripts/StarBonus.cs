@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StarBonus : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     private void OnTriggerEnter(Collider other)
     {
         slimeController slime = other.GetComponentInParent<slimeController>();
@@ -11,6 +13,7 @@ public class StarBonus : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
             slime.AddBonus();
+            audioSource.Play();
         }
     }
 }
