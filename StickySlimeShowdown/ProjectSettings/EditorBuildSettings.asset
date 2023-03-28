@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/mainscene.unity
     guid: 00f8a3d2c10934cd08269aee14097e59
   - enabled: 1
+    path: Assets/Scenes/howToPlay.unity
+    guid: 07c071a3f82d849c69d8da630e093a9d
+  - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: b061dcafd65d346deb75940a367a1c27
+  - enabled: 1
+    path: Assets/Scenes/powerUp.unity
+    guid: bbc6dd175a7234e14a3ac206f8984fb9
   m_configObjects: {}

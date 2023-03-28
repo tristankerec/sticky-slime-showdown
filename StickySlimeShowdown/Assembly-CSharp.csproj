@@ -58,26 +58,33 @@
   <ItemGroup>
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/Face.cs" />
     <Compile Include="Assets/Kawaii Slimes/Scripts/GameManager.cs" />
+    <Compile Include="Assets/Scripts/CoinScript.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs" />
-    <Compile Include="Assets/Scripts/AIController.cs" />
-    <Compile Include="Assets/Scripts/StateDead.cs" />
-    <Compile Include="Assets/Scripts/PlayerController.cs" />
-    <Compile Include="Assets/Scripts/PlayerStatus.cs" />
+    <Compile Include="Assets/Scripts/StarBonus.cs" />
+    <Compile Include="Assets/Scripts/GameOver.cs" />
+    <Compile Include="Assets/Scripts/powerUpSpin.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs" />
     <Compile Include="Assets/TeKniKo_Free/Power_Ups/Scripts/ObjectBounce.cs" />
     <Compile Include="Assets/Scripts/slimeController.cs" />
-    <Compile Include="Assets/Points.cs" />
+    <Compile Include="Assets/Scripts/SlimeCoin.cs" />
+    <Compile Include="Assets/Scripts/Points.cs" />
     <Compile Include="Assets/Scripts/StateWalk.cs" />
+    <Compile Include="Assets/Scripts/LifePowerUp.cs" />
+    <Compile Include="Assets/Scripts/StarScript.cs" />
     <Compile Include="Assets/Scripts/State.cs" />
+    <Compile Include="Assets/Scripts/SpeedPowerUp.cs" />
+    <Compile Include="Assets/Scripts/SpeedScript.cs" />
     <Compile Include="Assets/Scripts/enemyController.cs" />
     <Compile Include="Assets/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs" />
-    <Compile Include="Assets/Scripts/AIStatus.cs" />
     <Compile Include="Assets/Scripts/slimeWalk.cs" />
-    <Compile Include="Assets/Scripts/StateAttack.cs" />
+    <Compile Include="Assets/Scripts/SpeedDownScript.cs" />
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
-    <Compile Include="Assets/MainMenu.cs" />
+    <Compile Include="Assets/Scripts/HeartScript.cs" />
+    <Compile Include="Assets/Scripts/SpeedDown.cs" />
+    <Compile Include="Assets/Scripts/MainMenu.cs" />
     <Compile Include="Assets/Scripts/CharacterCollision.cs" />
-    <Compile Include="Assets/GameOver.cs" />
+    <Compile Include="Assets/Scripts/carsonManager.cs" />
+    <Compile Include="Assets/Scripts/MusicManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

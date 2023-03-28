@@ -13,13 +13,30 @@ public class slimeController : MonoBehaviour
     public GameObject boundary;
     public GameObject[] models;
     private int currentPoints = 0;
-    private int pointsThreshold = 10;
+    private int pointsThreshold = 60;
     private int index = 1;
+    private int numLives = 3;
     private GameObject currentModel;
     private GameObject parent;
     public GameObject spherePrefab;
+    private bool slimeAlive = true;
+    public AudioSource audioSource;
+    int aliveCond = 1;
+    
+
+    float powerUpStartTime = 0f;
+    float messageStart = 0f;
+
+    string whichPower = "";
+    string powerMessage = "";
+
+    private bool isPowerUpActive = false;
+    private bool displayMessage = false;
 
     private float timerDuration = 240.0f;
+
+    public AudioSource deathSource;
+    public AudioSource respawnSource;
 
 
     public static string SecondsToMinutesAndSeconds(float seconds)
@@ -45,28 +62,191 @@ public class slimeController : MonoBehaviour
 
     }
 
+    public void IncreaseSpeed(){
+        if (isPowerUpActive == true) {
+            if (whichPower == "Inc")
+            {
+                RestoreIncSpeed();
+            }
+            else {
+                RestoreDecSpeed();
+            }
+        }
+        // Save the original moveSpeed
+        float originalSpeed = moveSpeed;
+        // Increase the moveSpeed
+        moveSpeed += 2f;
+        animator.speed = 1.3f;
+        // Wait for 5 seconds
+        whichPower = "Inc";
+        isPowerUpActive = true;
+        powerUpStartTime = Time.time;
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Speed Up!";
+        //Invoke("RestoreIncSpeed", 10f);
+    }
+
+    public void DecreaseSpeed(){
+        if (isPowerUpActive == true)
+        {
+            if (whichPower == "Inc")
+            {
+                RestoreIncSpeed();
+            }
+            else
+            {
+                RestoreDecSpeed();
+            }
+        }
+        whichPower = "Dec";
+        // Save the original moveSpeed
+        float originalSpeed = moveSpeed;
+        // Increase the moveSpeed
+        // moveSpeed -= f;
+        animator.speed = 0.8f;
+        // Wait for 5 seconds
+        isPowerUpActive = true;
+        powerUpStartTime = Time.time;
+        //Invoke("RestoreDecSpeed", 10f);
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Speed Down!";
+    }
+
+    public void AddBonus(){
+        addPoints(50);
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "50 Points!";
+    }
+
+
+    void RestoreIncSpeed(){
+        moveSpeed -= 2f;
+        animator.speed = 1f;
+        isPowerUpActive = false;
+    }
+
+    void RestoreDecSpeed(){
+        // moveSpeed += 0.5f;
+        animator.speed = 1f;
+        isPowerUpActive = false;
+    }
+    
+
     void GameOver() {
-        SceneManager.LoadScene(2);
+        PlayerPrefs.SetInt("Score", currentPoints);
+        SceneManager.LoadScene(3);
     }
 
     void Update(){
         timerDuration -= Time.deltaTime;
     }
 
+    public int GetLives(){
+        return numLives;
+    }
+
+    public void AddLife(){
+        numLives = numLives + 1;
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Added a life!";
+    }
+
+    public void AddSlimeCoinBonus(){
+        addPoints(5);
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "5 Points!";
+    }
+
+
     void OnGUI()
     {
-        GUI.Box(new Rect(Screen.width - 100, 0, 100, 50),"Lives");
-        GUI.Box(new Rect(0, 0, 100, 50),"Points: " + currentPoints.ToString());
-        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 25, 0, 100, 50),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
+        GUI.Box(new Rect(Screen.width - 100, 0, 110, 30),"Lives: " + numLives.ToString());
+        GUI.Box(new Rect(0, 0, 110, 30),"Points: " + currentPoints.ToString());
+        GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 0, 110, 30),"Time Left: " + SecondsToMinutesAndSeconds(timerDuration));
+        if (isPowerUpActive){
+            float remainingTime = 10f - (Time.time - powerUpStartTime);
+            if (remainingTime <= 0) {
+                if (whichPower == "Inc")
+                {
+                    RestoreIncSpeed();
+                }
+                else
+                {
+                    RestoreDecSpeed();
+                }
+            }
+            GUI.Box(new Rect(Screen.width - (Screen.width/2) - 35, 30, 110, 30), "Power Left: " + Mathf.RoundToInt(remainingTime));
+        }
+        if (displayMessage){
+            float remainingTime = 5f - (Time.time - messageStart);
+            if (remainingTime<=0){
+                if (powerMessage == "Respawning in: "){
+                    respawnSource.Play();
+                }
+                displayMessage = false;
+            }
+            int respawnFlag = 0;
+            if (powerMessage == "Respawning in: "){
+                powerMessage = powerMessage + SecondsToMinutesAndSeconds(remainingTime);
+                respawnFlag = 1;
+            }
+            if (isPowerUpActive){
+                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 75, 60, 190, 30), powerMessage);
+            }
+            else{
+                GUI.Box(new Rect(Screen.width - (Screen.width/2) - 75, 30, 190, 30), powerMessage);
+            }
+            if (respawnFlag == 1){
+                powerMessage = "Respawning in: ";
+            }
+        }
+    }
+
+    public void setDead()
+    {
+        animator.SetFloat("Speed", 0.0f);
+        slimeAlive = false;
     }
 
     void FixedUpdate()
     {
+
+
+
+        if (!isAlive() && transform.childCount == 0)
+        {
+            Debug.Log("Dead");
+            return;
+        }
+
+        if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0) && aliveCond == 1)
+        {
+            slimeAlive = true;
+
+        }
+
+        if (!isAlive())
+        {
+            displayMessage = true;
+            messageStart = Time.time;
+            powerMessage = "Move to disable Invincibility";
+            Debug.Log("Invincible. Move to disable Invincibility");
+            return;
+        }
+
+        if (powerMessage == "Move to disable Invincibility"){
+            displayMessage = false;
+        }
+
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed;
         float moveMagnitude = movement.magnitude;
-
         float distanceToBoundary = Vector3.Distance(transform.GetChild(0).position, boundary.transform.position);
         float maxDistance = boundary.GetComponent<SphereCollider>().radius;
         Vector3 moveDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
@@ -83,6 +263,7 @@ public class slimeController : MonoBehaviour
         {
             if (moveMagnitude >= 1)
             {
+                //animator.SetFloat("Speed", moveSpeed);
                 animator.SetFloat("Speed", moveSpeed);
 
             }
@@ -106,14 +287,13 @@ public class slimeController : MonoBehaviour
     public void addPoints(int value)
     {
         currentPoints = currentPoints + value;
-        if (currentPoints >= pointsThreshold)
+        if (currentPoints >= pointsThreshold && index < 3)
         {
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
             }
             GameObject nextPlayerModel = Instantiate(models[index], transform.GetChild(0).position, transform.GetChild(0).rotation);
-            //nextPlayerModel.name = "Slime_03_Leaf";
             if (index == 1)
             {
                 nextPlayerModel.tag = "Player2";
@@ -142,24 +322,87 @@ public class slimeController : MonoBehaviour
             nextSphere.transform.SetParent(nextPlayerModel.transform);
 
             nextPlayerModel.transform.SetParent(parent.transform);
-            
-
-
-            index = index + 1;
-            pointsThreshold = 5000;
+            index++;
+            pointsThreshold = 260;
         }
     }
 
-    public void killCharacter()
+    public void loseLife()
     {
+        slimeAlive = false;
+        aliveCond = 0;
+        isPowerUpActive = false;
+        displayMessage = false;
+
+        deathSource.Play();
         StartCoroutine(Die());
+        numLives--;
+        if (numLives < 1)
+        {
+            Invoke("GameOver", 0.0f);
+        }
+        displayMessage = true;
+        messageStart = Time.time;
+        powerMessage = "Respawning in: ";
+        
+        
     }
 
     IEnumerator Die()
     {
-        print("Dead!");
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
         yield return new WaitForSeconds(5);
-        print("Alive!");
+        Vector3 newPos = new Vector3(0.0f, -0.009995013f, 0.0f);
+        Quaternion newQuaternion = new Quaternion(0, 0, 0, 0);
+
+        GameObject nextPlayerModel = Instantiate(models[index-1], newPos, newQuaternion);
+        if (index == 1)
+        {
+            nextPlayerModel.tag = "Player";
+
+        }
+        if (index == 2)
+        {
+            nextPlayerModel.tag = "Player2";
+
+        }
+        else if (index == 3)
+        {
+            nextPlayerModel.tag = "Player3";
+
+        }
+        CharacterController characterController = nextPlayerModel.AddComponent<CharacterController>();
+        CharacterCollision characterCollision = nextPlayerModel.AddComponent<CharacterCollision>();
+        characterController.center = new Vector3(0, 0.4f, 0);
+        characterController.radius = 0.31f;
+        characterController.height = 0.1f;
+        Animator newAnim = nextPlayerModel.AddComponent<Animator>();
+        RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
+        newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+        newAnim.applyRootMotion = true;
+        newAnim.runtimeAnimatorController = newAnimController;
+        controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
+        controller = characterController;
+        animator = nextPlayerModel.GetComponentInChildren<Animator>();
+        Vector3 sphereLocation = new Vector3(0.0f, 0.01f, 0.0f);
+        GameObject nextSphere = Instantiate(spherePrefab, sphereLocation, nextPlayerModel.transform.rotation);
+        nextSphere.transform.SetParent(nextPlayerModel.transform);
+
+        nextPlayerModel.transform.SetParent(parent.transform);
+        aliveCond = 1;
+
     }
+
+    public bool isAlive()
+    {
+        return slimeAlive;
+    }
+
+
 }
+
+
 
