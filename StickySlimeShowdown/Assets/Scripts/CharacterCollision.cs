@@ -5,10 +5,12 @@ using UnityEngine;
 public class CharacterCollision : MonoBehaviour
 {
     private slimeController slime;
+    private AudioSource audioSource;
 
     void Start()
     {
         slime = GetComponentInParent<slimeController>();
+        audioSource = slime.audioSource;
         
     }
     private void OnTriggerEnter(Collider hit)
@@ -16,6 +18,7 @@ public class CharacterCollision : MonoBehaviour
         // Check if the collision is with the NPC
         if (hit.gameObject.CompareTag("NPC") && slime.isAlive())
         {
+            
             // Log a message to the console
             //Debug.Log("Player collided with NPC!");
             Debug.Log("Player collided with " + hit.gameObject.transform.GetChild(1).gameObject.name);
@@ -28,6 +31,7 @@ public class CharacterCollision : MonoBehaviour
             //Debug.Log("Player type is "+playerType);
             if (enemyType == "Slime_01")
             {
+                audioSource.Play();
                 Debug.Log("Adding 10 points");
                 if (hit.gameObject.transform.name.Contains("right"))
                 {
@@ -55,6 +59,7 @@ public class CharacterCollision : MonoBehaviour
                 }
                 else
                 {
+                    audioSource.Play();
                     Debug.Log("Adding 20 points");
                     if (hit.gameObject.transform.name.Contains("right"))
                     {
@@ -80,7 +85,7 @@ public class CharacterCollision : MonoBehaviour
                 }
                 else
                 {
-
+                    audioSource.Play();
                     Debug.Log("Adding 30 points");
                     if (hit.gameObject.transform.name.Contains("right"))
                     {

@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799d23ff73c3d4c09bb57ef107099297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &136114670
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799d23ff73c3d4c09bb57ef107099297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &261726463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,6 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395ad376f9c33470dbd3e63cadb52014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &513108998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2402,6 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58ca065ed64540698a4d9aec7956cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1 &882701714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3327,6 +3331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799d23ff73c3d4c09bb57ef107099297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1156791133 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8623484822163350725, guid: 77c2108e75a6da04b8a9c2d5f73fc910, type: 3}
@@ -3344,6 +3349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167f642d44aa2409caadff1a904bfa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1 &1190703917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8059062218478941161, guid: e0bfc7479007bc1479a9f7d769c5056e, type: 3}
@@ -3361,6 +3367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799d23ff73c3d4c09bb57ef107099297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &1191942445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3600,6 +3607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799d23ff73c3d4c09bb57ef107099297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &1389361021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4964,8 +4972,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Heart:
 
-    Collect this powerup to gain an extra life. A maximum of 3
-    lives can be achieved.'
+    Collect this powerup to gain an extra life. A player can only
+    have a maximum of 3 lives at a time.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6064,6 +6072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4855bafeac6ff4e5c94f3579465cf879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &2002527784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6143,6 +6152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d2c3452c8294240bed95da311720f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &2020969830
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class MusicManager : MonoBehaviour
+public class carsonManager : MonoBehaviour
 {
-
-    public static MusicManager instance;
+    public static carsonManager instance;
     public AudioSource audioSource;
 
     void Start()
@@ -26,7 +24,7 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "mainscene")
+        if (SceneManager.GetActiveScene().name == "Menu")
         {
             audioSource.Stop();
             instance = null;
@@ -51,5 +49,4 @@ public class MusicManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

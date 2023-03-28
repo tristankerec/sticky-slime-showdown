@@ -85,10 +85,12 @@
     <Compile Include="Assets/Scripts/StateAttack.cs" />
     <Compile Include="Assets/Scripts/SpeedDownScript.cs" />
     <Compile Include="Assets/Kawaii Slimes/Scripts/AI/EnemyAi.cs" />
+    <Compile Include="Assets/MusicManager.cs" />
     <Compile Include="Assets/Scripts/HeartScript.cs" />
     <Compile Include="Assets/Scripts/SpeedDown.cs" />
     <Compile Include="Assets/Scripts/MainMenu.cs" />
     <Compile Include="Assets/Scripts/CharacterCollision.cs" />
+    <Compile Include="Assets/carsonManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

@@ -20,6 +20,7 @@ public class slimeController : MonoBehaviour
     private GameObject parent;
     public GameObject spherePrefab;
     private bool slimeAlive = true;
+    public AudioSource audioSource;
     int aliveCond = 1;
     
 
@@ -335,12 +336,16 @@ public class slimeController : MonoBehaviour
 
         deathSource.Play();
         StartCoroutine(Die());
-
+        numLives--;
+        if (numLives < 1)
+        {
+            Invoke("GameOver", 0.0f);
+        }
         displayMessage = true;
         messageStart = Time.time;
         powerMessage = "Respawning in: ";
         
-        numLives--;
+        
     }
 
     IEnumerator Die()
