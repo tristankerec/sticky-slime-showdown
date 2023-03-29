@@ -1,9 +1,13 @@
 ﻿<Properties StartupConfiguration="{D40B112D-421F-E212-B0E3-9B3ECD35F66E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterCollision.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SpeedDown.cs">
     <Files>
-      <File FileName="Assets/Scripts/slimeController.cs" Line="398" Column="66" />
-      <File FileName="Assets/Scripts/enemyController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/enemyController.cs" Line="91" Column="44" />
+      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="54" Column="40" />
+      <File FileName="Assets/Scripts/StateWalk.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HeartScript.cs" Line="22" Column="14" />
+      <File FileName="Assets/Scripts/SpeedDown.cs" Line="16" Column="32" />
+      <File FileName="Assets/Scripts/SpeedDownScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/slimeController.cs" Line="384" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +15,7 @@
           <Node name="StickySlimeShowdown" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="CharacterCollision.cs" selected="True" />
+                <Node name="SpeedDown.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -21,7 +25,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0421b04b-c444-4804-a5fd-6115c75a8c92" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="01823b10-b241-4a00-988a-6b01b0dc16d0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

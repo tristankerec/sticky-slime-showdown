@@ -10,6 +10,7 @@ public class enemyController : MonoBehaviour
     private bool isControllable = true;
     private bool isDead = false;
     private float moveSpeed;
+    private float lastMoveSpeed;
 
     public bool IsControllable
     {
@@ -72,22 +73,101 @@ public class enemyController : MonoBehaviour
         return false;
     }
 
+    public void setMoveSpeed(float val)
+    {
+        moveSpeed = val;
+    }
+
+    public void setAnimSpeed(float val)
+    {
+        animator.speed = val;
+    }
+
     public bool beWalking()
     {
-        //TODO: if player is dead, return false
-        GameObject player = GameObject.FindWithTag("Player");
+
+        GameObject parent = GameObject.FindWithTag("Parent");
+        GameObject player;
+        if (parent.transform.childCount < 1)
+        {
+            player = null;
+            moveSpeed = lastMoveSpeed;
+
+        } else
+        {
+            player = parent.transform.GetChild(0).gameObject;
+        }
         
+
+
         animator.SetFloat("Speed", moveSpeed);
         if (transform.position.x >= 14.0f && !transform.name.Contains("right"))
         {
             gameObject.transform.position = new Vector3(-14.11f, 0.0f, this.gameObject.transform.position.z);
+            if (player != null)
+            {
+                if (player.tag == "Player")
+                {
+                    moveSpeed = Random.Range(0.4f, 0.8f);
+
+                }
+                else if (player.tag == "Player2")
+                {
+                    moveSpeed = Random.Range(0.4f, 2.0f);
+
+                }
+                else if (player.tag == "Player3")
+                {
+                    moveSpeed = Random.Range(0.8f, 2.0f);
+                }
+            }
+
+            if (moveSpeed > 1.0f)
+            {
+                animator.speed = moveSpeed;
+                moveSpeed = 1;
+
+            }
+            else
+            {
+                animator.speed = 1.0f;
+            }
+
         }
 
         if (transform.position.x <= -15.5f && transform.name.Contains("right"))
         {
             gameObject.transform.position = new Vector3(14.25f, 0.0f, this.gameObject.transform.position.z);
-        }
+            if (player != null)
+            {
+                if (player.tag == "Player")
+                {
+                    moveSpeed = Random.Range(0.4f, 0.8f);
 
+                }
+                else if (player.tag == "Player2")
+                {
+                    moveSpeed = Random.Range(0.4f, 2.0f);
+
+                }
+                else if (player.tag == "Player3")
+                {
+                    moveSpeed = Random.Range(0.8f, 2.0f);
+
+                }
+            }
+
+            if (moveSpeed > 1.0f)
+            {
+                animator.speed = moveSpeed;
+                moveSpeed = 1;
+            }
+            else
+            {
+                animator.speed = 1.0f;
+            }
+        }
+        lastMoveSpeed = moveSpeed;
         return false;
     }
 }
