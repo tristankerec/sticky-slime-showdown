@@ -15,10 +15,11 @@ public class slimeController : MonoBehaviour
     private int currentPoints = 0;
     private int pointsThreshold = 60;
     private int index = 1;
-    private int numLives = 3;
+    private int numLives = 1;
     private GameObject currentModel;
     private GameObject parent;
     public GameObject spherePrefab;
+    public GameObject arrowPrefab;
     private bool slimeAlive = true;
     public AudioSource audioSource;
     int aliveCond = 1;
@@ -317,10 +318,18 @@ public class slimeController : MonoBehaviour
             controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
             controller = characterController;
             animator = nextPlayerModel.GetComponentInChildren<Animator>();
+            
+
             Vector3 sphereLocation = new Vector3(transform.GetChild(0).position.x, 0.01f, transform.GetChild(0).position.z);
             GameObject nextSphere = Instantiate(spherePrefab, sphereLocation, transform.GetChild(0).rotation);
-            nextSphere.transform.SetParent(nextPlayerModel.transform);
+            //Vector3 arrowLocation = new Vector3(transform.GetChild(0).position.x, 0.01f, transform.GetChild(0).position.z);
+            Vector3 arrowLocation = transform.GetChild(0).position + transform.GetChild(0).forward * 0.48f + new Vector3(0.0f, 0.02f, 0.0f);
 
+            Quaternion rotationVal = nextPlayerModel.transform.rotation * Quaternion.AngleAxis(90.0f, Vector3.up);
+            GameObject nextArrow = Instantiate(arrowPrefab, arrowLocation, rotationVal);
+            nextArrow.transform.SetParent(nextSphere.transform);
+            nextSphere.transform.SetParent(nextPlayerModel.transform);
+            
             nextPlayerModel.transform.SetParent(parent.transform);
             index++;
             pointsThreshold = 260;
@@ -389,6 +398,10 @@ public class slimeController : MonoBehaviour
         animator = nextPlayerModel.GetComponentInChildren<Animator>();
         Vector3 sphereLocation = new Vector3(0.0f, 0.01f, 0.0f);
         GameObject nextSphere = Instantiate(spherePrefab, sphereLocation, nextPlayerModel.transform.rotation);
+        Vector3 arrowLocation = new Vector3(0.0f + 0.022f, 0.01f, 0.01f + 0.48f);
+        Quaternion rotationVal = nextPlayerModel.transform.rotation * Quaternion.AngleAxis(90.0f, Vector3.up);
+        GameObject nextArrow = Instantiate(arrowPrefab, arrowLocation, rotationVal);
+        nextArrow.transform.SetParent(nextSphere.transform);
         nextSphere.transform.SetParent(nextPlayerModel.transform);
 
         nextPlayerModel.transform.SetParent(parent.transform);
