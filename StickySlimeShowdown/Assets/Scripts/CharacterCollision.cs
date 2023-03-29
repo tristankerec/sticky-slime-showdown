@@ -37,8 +37,8 @@ public class CharacterCollision : MonoBehaviour
             {
                 if (playerType == "Player3" || playerType == "Player2")
                 {
-                    //20% of the time, the player will get a slow down
-                    if (Random.value < 0.2f)
+                    //10% of the time, the player will get a slow down
+                    if (Random.value < 0.1f)
                     {
                         slime.DecreaseSpeed();
                         slowDown.Play();
@@ -103,8 +103,8 @@ public class CharacterCollision : MonoBehaviour
                 }
                 else
                 {
-                    //20% of the time, the player will get a slow down
-                    if (Random.value < 0.2f)
+                    //10% of the time, the player will get a slow down
+                    if (Random.value < 0.1f)
                     {
                         slime.DecreaseSpeed();
                         slowDown.Play();
@@ -167,8 +167,8 @@ public class CharacterCollision : MonoBehaviour
                 }
                 else
                 {
-                    //20% of the time, the player will get a slow down
-                    if (Random.value < 0.2f)
+                    //10% of the time, the player will get a slow down
+                    if (Random.value < 0.1f)
                     {
                         slime.DecreaseSpeed();
                         slowDown.Play();
