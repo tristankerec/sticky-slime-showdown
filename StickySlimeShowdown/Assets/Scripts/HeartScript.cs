@@ -13,9 +13,12 @@ public class HeartScript : MonoBehaviour
         if (slime != null)
         {
             Destroy(transform.parent.gameObject);
+            audioSource.Play();
             if (slime.GetLives() < 3){
-                slime.AddLife();
-                audioSource.Play();
+                slime.AddLife();     
+            } else
+            {
+                slime.addHeartPoints();
             }
         }
     }
