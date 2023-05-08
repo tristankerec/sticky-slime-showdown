@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{D40B112D-421F-E212-B0E3-9B3ECD35F66E}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterCollision.cs">
     <Files>
-      <File FileName="Assets/Scripts/enemyController.cs" Line="91" Column="44" />
+      <File FileName="Assets/Scripts/carsonManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/enemyController.cs" />
       <File FileName="Assets/Scripts/CharacterCollision.cs" Line="171" Column="43" />
       <File FileName="Assets/Scripts/StateWalk.cs" />
       <File FileName="Assets/Scripts/HeartScript.cs" />
-      <File FileName="Assets/Scripts/SpeedDown.cs" Line="16" Column="32" />
+      <File FileName="Assets/Scripts/SpeedDown.cs" />
       <File FileName="Assets/Scripts/SpeedDownScript.cs" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainMenu.cs" />
       <File FileName="Assets/Scripts/slimeController.cs" Line="384" Column="1" NotebookId="1" />
     </Files>
     <Pads>
@@ -16,7 +17,7 @@
           <Node name="StickySlimeShowdown" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="CharacterCollision.cs" selected="True" />
+                <Node name="carsonManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -26,7 +27,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d2623243-fb2a-46f5-8028-4e333abac478" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="a57459d9-413a-4fbb-ad57-9e9e0fa83740" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

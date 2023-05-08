@@ -13,7 +13,9 @@ public class carsonManager : MonoBehaviour
         if (!audioSource.isPlaying)
         {
             audioSource.loop = true;
+
             audioSource.Play();
+
         }
     }
 
