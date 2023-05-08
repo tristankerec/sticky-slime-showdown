@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterCollision.cs">
     <Files>
       <File FileName="Assets/Scripts/enemyController.cs" Line="91" Column="44" />
-      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="54" Column="40" />
+      <File FileName="Assets/Scripts/CharacterCollision.cs" Line="171" Column="43" />
       <File FileName="Assets/Scripts/StateWalk.cs" />
       <File FileName="Assets/Scripts/HeartScript.cs" />
       <File FileName="Assets/Scripts/SpeedDown.cs" Line="16" Column="32" />
