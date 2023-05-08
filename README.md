@@ -23,4 +23,4 @@ Your character is the slime with the red circle underneath it.
 
 Collect power ups to move faster, slower, gain another life, or get some SlimeCoins and Stars for some bonus points.
 
-Eat the slimes that are your size to become bigger, until you are king slime!
+Eat the slimes that are the same size as you or smaller to gain points and level up your character, until you are king slime!
