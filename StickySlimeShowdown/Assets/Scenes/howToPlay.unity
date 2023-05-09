@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0777769, g: 0.13243407, b: 0.16562167, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,11 +220,11 @@ RectTransform:
   m_Father: {fileID: 1512303911}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -834.7, y: -485.4}
-  m_SizeDelta: {x: 206.8, y: 73.4}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 39.4, y: 35}
+  m_SizeDelta: {x: 206.80005, y: 73.400024}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &66101166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,7 +1451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: -214.19}
+  m_AnchoredPosition: {x: -402.1, y: -342.18}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424139982
@@ -1643,7 +1643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 290.6, y: -214.19}
+  m_AnchoredPosition: {x: 421.1, y: -342.18}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459727437
@@ -1884,6 +1884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395ad376f9c33470dbd3e63cadb52014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &513108998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2130,11 +2131,11 @@ RectTransform:
   m_Father: {fileID: 1512303911}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 837.6, y: -485.4}
-  m_SizeDelta: {x: 206.8, y: 73.4}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -52, y: 35}
+  m_SizeDelta: {x: 206.80005, y: 73.400024}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &559735355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2555,6 +2556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58ca065ed64540698a4d9aec7956cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1 &882701714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3314,11 +3316,11 @@ RectTransform:
   m_Father: {fileID: 1512303911}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 687.685, y: 417.94}
-  m_SizeDelta: {x: -1367.17, y: -799.92004}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.0200195, y: 2.72}
+  m_SizeDelta: {x: 751.8, y: 328.88}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1154504166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3374,6 +3376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167f642d44aa2409caadff1a904bfa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &1190121660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3532,7 +3535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.95, y: -214.19}
+  m_AnchoredPosition: {x: -8.95, y: -342.18}
   m_SizeDelta: {x: 216.4, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1223359806
@@ -3801,11 +3804,11 @@ RectTransform:
   m_Father: {fileID: 1154504165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -86.7, y: 75.36005}
-  m_SizeDelta: {x: 695, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -15.72998, y: -39.640015}
+  m_SizeDelta: {x: 884, y: 50}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1320834507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3862,8 +3865,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4459,10 +4462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2880, y: 1800}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4876,8 +4879,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -546.055, y: 287.49}
-  m_SizeDelta: {x: -1084.91, y: -539.02}
+  m_AnchoredPosition: {x: -831.5, y: 477.34995}
+  m_SizeDelta: {x: -1657, y: -875.90015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1645250104
 MonoBehaviour:
@@ -5538,11 +5541,11 @@ RectTransform:
   m_Father: {fileID: 1645250103}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.4450684, y: 205.81006}
-  m_SizeDelta: {x: 787.9, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 14.549988, y: -46.47}
+  m_SizeDelta: {x: 1161, y: 50}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1827308970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5609,8 +5612,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6089,6 +6092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4855bafeac6ff4e5c94f3579465cf879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1 &1974272689
 GameObject:
   m_ObjectHideFlags: 0
