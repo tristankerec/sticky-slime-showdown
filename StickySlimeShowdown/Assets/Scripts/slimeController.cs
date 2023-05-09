@@ -414,18 +414,18 @@ public class slimeController : MonoBehaviour
             //New Implementation
             var controller2 = Resources.Load<RuntimeAnimatorController>("Slime");
             var newAnimController = controller2 as RuntimeAnimatorController;
-            animator.runtimeAnimatorController = newAnimController;
-
-
-
+            //animator.runtimeAnimatorController = newAnimController;
             Animator newAnim = nextPlayerModel.AddComponent<Animator>();
             //RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
-            newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+            //newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+            //newAnim.avatar = Resources.Load<Avatar>("Slime_Anim.fbx");
             newAnim.applyRootMotion = true;
+            newAnim.avatar = Resources.Load<Avatar>("Slime_Anim");
             newAnim.runtimeAnimatorController = newAnimController;
             controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
             controller = characterController;
-            animator = nextPlayerModel.GetComponentInChildren<Animator>();
+            //animator = nextPlayerModel.GetComponentInChildren<Animator>();
+            animator = newAnim;
             
 
             Vector3 sphereLocation = new Vector3(transform.GetChild(0).position.x, 0.01f, transform.GetChild(0).position.z);
@@ -521,21 +521,20 @@ public class slimeController : MonoBehaviour
         characterController.center = new Vector3(0, 0.4f, 0);
         characterController.radius = 0.31f;
         characterController.height = 0.1f;
-        Animator newAnim = nextPlayerModel.AddComponent<Animator>();
 
         //New Implementation
         var controller2 = Resources.Load<RuntimeAnimatorController>("Slime");
         var newAnimController = controller2 as RuntimeAnimatorController;
         //animator.runtimeAnimatorController = newAnimController;
-
-
+        Animator newAnim = nextPlayerModel.AddComponent<Animator>();
         //RuntimeAnimatorController newAnimController = AssetDatabase.LoadAssetAtPath<AnimatorController>("Assets/Kawaii Slimes/Animator/Slime.controller");
-        newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+        //newAnim.avatar = AssetDatabase.LoadAssetAtPath<Avatar>("Assets/Kawaii Slimes/Animation/Slime_Anim.fbx");
+        //newAnim.avatar = Resources.Load<Avatar>("Slime_Anim.fbx");
         newAnim.applyRootMotion = true;
+        newAnim.avatar = Resources.Load<Avatar>("Slime_Anim");
         newAnim.runtimeAnimatorController = newAnimController;
         controller = nextPlayerModel.GetComponentInChildren<CharacterController>();
         controller = characterController;
-
         //animator = nextPlayerModel.GetComponentInChildren<Animator>();
         animator = newAnim;
 
